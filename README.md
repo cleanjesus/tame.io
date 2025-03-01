@@ -1,6 +1,6 @@
 # Tame.io
 
-Tame.io is a task management application designed to help users organize their time, boost productivity, and manage tasks efficiently. The application is built using Flask for the backend and React with Vite for the frontend.
+Tame.io is a task management application designed to help users organize their time, boost productivity, and manage tasks efficiently. The application is built using Flask for the backend and React with Vite for the frontend. Although not fully complete, it still provides value to the user.
 
 ## Features
 
