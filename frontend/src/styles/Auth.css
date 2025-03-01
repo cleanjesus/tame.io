@@ -1,0 +1,368 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  color: #1c1e21;
+  min-height: 100vh;
+}
+
+/* Page layout */
+.auth-page {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(
+    -45deg,
+    var(--gradient-start),
+    var(--gradient-middle),
+    var(--gradient-end),
+    var(--gradient-middle)
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add floating circles in the background */
+.auth-page::before,
+.auth-page::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 20s infinite;
+}
+
+.auth-page::before {
+  top: -250px;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+.auth-page::after {
+  bottom: -150px;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+}
+
+/* Gradient animation */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating animation for the circles */
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, 20px) rotate(10deg);
+  }
+  50% {
+    transform: translate(0, 30px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-20px, 10px) rotate(-10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.auth-container {
+  width: 100%;
+  max-width: min(1200px, 95vw);
+  min-height: min(600px, 90vh);
+  max-height: 90vh;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-image {
+  flex: 1;
+  background: linear-gradient(
+    45deg,
+    var(--gradient-start),
+    var(--gradient-middle)
+  );
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/path-to-your-pattern.svg") center/cover;
+  opacity: 0.1;
+}
+
+.auth-image h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.auth-image p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  position: relative;
+}
+
+.auth-form-container {
+  flex: 1;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-header {
+  margin-bottom: 3rem;
+}
+
+.auth-header h1 {
+  font-size: 2.25rem;
+  color: #1f2937;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.auth-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  background: white;
+  color: #1f2937;
+}
+
+.auth-form input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.auth-form input:focus {
+  border-color: var(--gradient-middle);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
+
+.auth-form input:hover {
+  border-color: var(--gradient-middle);
+  transition: all 0.3s ease;
+}
+
+.auth-submit {
+  margin-top: auto;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    var(--gradient-start),
+    var(--gradient-middle)
+  );
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.auth-submit:hover {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 24px rgba(99, 102, 241, 0.4);
+  }
+  100% {
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  }
+}
+
+.auth-footer {
+  margin-top: 2rem;
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.auth-footer p {
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.auth-footer button {
+  background: none;
+  border: none;
+  color: var(--gradient-middle);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+}
+
+.auth-footer button:hover {
+  color: var(--gradient-start);
+}
+
+.auth-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.auth-message.error {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.auth-message.success {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .auth-container {
+    max-width: 90%;
+  }
+
+  .auth-image {
+    padding: 2rem;
+  }
+
+  .auth-form-container {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    min-height: auto;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .auth-image {
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .auth-form-container {
+    padding: 2rem;
+  }
+
+  .auth-header h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 1rem;
+  }
+
+  .auth-container {
+    max-width: 100%;
+  }
+
+  .auth-image {
+    padding: 1.5rem;
+  }
+
+  .auth-form-container {
+    padding: 1.5rem;
+  }
+}
